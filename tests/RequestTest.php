@@ -35,7 +35,7 @@ class RequestTest extends TestCase
         $req->getOptions()
             ->set(CURLOPT_URL, $this->createRequestUrl())
             ->set(CURLOPT_RETURNTRANSFER, true);
-        $this->assertInternalType('resource', $req->getHandle());
+        $this->assertIsResource($req->getHandle());
         $this->validateSuccesfulResponse($req->send());
 
         /**

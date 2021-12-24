@@ -19,9 +19,9 @@ abstract class TestCase extends PHPUnitTestCase
     {
         $content = $response->getContent();
         $data = json_decode($content, true);
-        $this->assertInternalType('array', $data);
+        $this->assertIsArray($data);
         $info = $response->getInfo();
-        $this->assertInternalType('array', $info);
+        $this->assertIsArray($info);
         $this->assertEquals(200, $info['http_code']);
         $this->assertEquals($param, $data['args']['curl-easy']);
         $this->assertEquals(200, $response->getInfo(CURLINFO_HTTP_CODE));

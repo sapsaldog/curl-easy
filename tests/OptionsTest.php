@@ -18,7 +18,7 @@ class OptionsTest extends TestCase
         $opts = new Options();
         $array = $opts->toArray();
 
-        $this->assertInternalType('array', $array);
+        $this->assertIsArray($array);
         $this->assertEmpty($array);
     }
 

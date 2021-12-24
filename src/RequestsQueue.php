@@ -128,8 +128,8 @@ class RequestsQueue extends EventDispatcher implements RequestsQueueInterface, \
                 $event->response->setError(new Error(curl_error($request->getHandle()), $result));
             }
             $event->queue = $this;
-            $this->dispatch('complete', $event);
-            $request->dispatch('complete', $event);
+            $this->dispatch($event, 'complete');
+            $request->dispatch($event, 'complete');
         }
 
         return $n;
@@ -140,7 +140,7 @@ class RequestsQueue extends EventDispatcher implements RequestsQueueInterface, \
      *
      * @return int    Handles count
      */
-    public function count()
+    public function count(): int
     {
         return count($this->queue);
     }
